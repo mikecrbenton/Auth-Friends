@@ -1,5 +1,6 @@
 import React, { useState, useHistory, browserHistory } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from 'styled-components';
 
 function Form(props) {
 
@@ -47,7 +48,7 @@ function Form(props) {
    
     return (
        
-      <form onSubmit={submitHandler}>
+      <PostForm onSubmit={submitHandler}>
 
         <label htmlFor="name">
            Name
@@ -81,11 +82,44 @@ function Form(props) {
 
         <button type="submit" onClick={props.getSmurf}>Add</button>
         
-      </form>
+      </PostForm>
      
        
     );
 }
 
 export default Form;
+
+const PostForm = styled.form`
+   margin: 2em auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 40%;
+   padding: 3em;
+   border: 3px solid whitesmoke;
+   box-shadow: 0px 0px 20px #121212;
+   
+   input{
+      background-color: #2d2d37;
+      border: none;
+      border: 2px solid whitesmoke;
+      color: whitesmoke;
+      font-family: lato; 
+      font-size: 1rem;
+      font-weight: 900;
+      padding: .5em .3em;
+      margin: 1em;
+   }
+   button{
+      background-color: #009B77;
+      border: 1px solid #009B77;
+      margin: 0 auto;
+      color: whitesmoke;
+      padding: .5em 2em;
+      font-size: 1rem;
+      box-shadow: 0px 0px 20px #121212;
+      width: 25%;
+   }
+`;
 

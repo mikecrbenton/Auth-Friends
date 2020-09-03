@@ -1,6 +1,7 @@
 import { Link, Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { axiosWithAuth } from "./utils/axiosWithAuth";
+import styled from 'styled-components';
 import React, { useState } from 'react';
 import './App.css';
 
@@ -24,17 +25,26 @@ function App() {
 
   return (
    <Router>
-    <div className="App">
+    <MainContainer className="App">
       
       <ul>
           <li>
-            <Link to="/login">Login</Link>
+            <Link 
+               to="/login"
+               style={{ textDecoration: 'none', color: 'whitesmoke', fontSize: '1.5rem' }}
+               >Login</Link>
           </li>
           <li>
-            <Link to="/display">Display</Link>
+            <Link 
+               to="/display"
+               style={{ textDecoration: 'none', color: 'whitesmoke', fontSize: '1.5rem'}}
+               >Display</Link>
           </li>
           <li>
-            <Link to="/form">Form</Link>
+            <Link 
+               to="/form"
+               style={{ textDecoration: 'none', color: 'whitesmoke', fontSize: '1.5rem'}}
+               >Form</Link>
           </li>
       </ul>
 
@@ -45,9 +55,24 @@ function App() {
          <Route component={Login} />
       </Switch>
    
-    </div>
+    </MainContainer>
   </Router>
   );
 }
 
 export default App;
+
+const MainContainer = styled.div`
+
+  ul{
+     display: flex;
+     justify-content: center;
+
+      li{
+            list-style-type: none;
+            margin: 1em ;
+      }
+   }
+`;
+
+
