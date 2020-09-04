@@ -25,11 +25,11 @@ class Login extends React.Component {
     e.preventDefault();
     // Make a POST request and send the credentials object to the api
 
-    axiosWithAuth()
+    axiosWithAuth()        // sending to api
       .post("/api/login", this.state.credentials)
-      .then((res) => {
+      .then((res) => {             // protected route looking for "token"
         window.localStorage.setItem("token", res.data.payload);
-        // navigate the user to /protected (or whatever landing page)
+        // redirect
         this.props.history.push("/display");
       })
       .catch((err) => console.log(err));

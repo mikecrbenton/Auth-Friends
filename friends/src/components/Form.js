@@ -61,7 +61,7 @@ function Form(props) {
         </label>
 
         <label htmlFor="age">
-           Age 
+           Age   
             <input
                type="text"
                name="age"

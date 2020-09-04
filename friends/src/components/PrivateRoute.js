@@ -10,14 +10,16 @@ import { Route, Redirect } from "react-router-dom";
 
 // rest operator (looks a lot like spread operator)
 //GasPrices ,  ...all the rest of the props
+
+// FUNCTION           
+// <deference>  component needs to be separated, THEN ...rest of the props
 const PrivateRoute = ({ component: Component, ...rest }) => {
   // const Component = component;
   const token = window.localStorage.getItem("token");
 
+  //RETURNS A <ROUTE> COMPONENT
   return (
-    <Route
-      // rest operator takes an object and destructure it, and rebuild it
-      {...rest}
+    <Route {...rest}  // rest operator takes an object and destructure it, and rebuild it
       // render prop that returns a component
       render={ (props) => {
         if (token) {
