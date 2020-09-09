@@ -52,7 +52,6 @@ function App() {
          <PrivateRoute exact path="/display" component={Display} />
          <PrivateRoute exact path="/form" component={Form} />
          <Route path="/login" component={Login} />
-         <Route component={Login} />
       </Switch>
    
     </MainContainer>

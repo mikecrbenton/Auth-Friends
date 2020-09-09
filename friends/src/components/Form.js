@@ -1,9 +1,12 @@
-import React, { useState, useHistory, browserHistory } from "react";
+import React, { useState, browserHistory } from "react";
+import { useHistory } from 'react-router-dom'
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from 'styled-components';
 
 function Form(props) {
 
+   const { push } = useHistory();
+   //const  history  = useHistory()
   
   // LOCAL STATE FOR FORM 
   const [newFriend, setNewFriend] = useState(
@@ -31,12 +34,14 @@ function Form(props) {
     axiosWithAuth()
       .post("/api/friends", newFriend )
       .then((res) => {
-         console.log("COMING BACK FROM POST: ", res)
+        //console.log("COMING BACK FROM POST: ", res)
         window.localStorage.setItem("token", res.data.config.headers.authorizaton);
         // navigate the user to /protected (or whatever landing page)
-        useHistory.push('/display');
+      //history.push('/display');
       })
       .catch((err) => console.log(err));
+
+    push('/display');
 
     setNewFriend({
       id : "",
@@ -65,8 +70,8 @@ function Form(props) {
             <input
                type="text"
                name="age"
-               onChange={changeHandler} // setState
-               value={newFriend.age} //controlled input - view State
+               onChange={changeHandler} 
+               value={newFriend.age} 
             />
         </label>
 
@@ -75,12 +80,12 @@ function Form(props) {
             <input
                type="text"
                name="email"
-               onChange={changeHandler} // setState
-               value={newFriend.email} //controlled input-view State
+               onChange={changeHandler} 
+               value={newFriend.email} 
             />
         </label>
 
-        <button type="submit" onClick={props.getSmurf}>Add</button>
+        <button type="submit">Add</button>
         
       </PostForm>
      
@@ -95,7 +100,7 @@ const PostForm = styled.form`
    display: flex;
    flex-direction: column;
    justify-content: center;
-   width: 40%;
+   width: 60%;
    padding: 3em;
    border: 3px solid whitesmoke;
    box-shadow: 0px 0px 20px #121212;
@@ -119,7 +124,7 @@ const PostForm = styled.form`
       padding: .5em 2em;
       font-size: 1rem;
       box-shadow: 0px 0px 20px #121212;
-      width: 25%;
+      width: 50%;
    }
 `;
 

@@ -60,6 +60,7 @@ class Login extends React.Component {
           />
           </label>
           <button>Log in</button>
+
         </LoginForm>
       </div>
     );
@@ -73,7 +74,7 @@ const LoginForm = styled.form`
    display: flex;
    flex-direction: column;
    justify-content: center;
-   width: 40%;
+   width: 70%;
    padding: 3em;
    border: 3px solid whitesmoke;
    box-shadow: 0px 0px 20px #121212;

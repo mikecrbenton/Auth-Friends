@@ -17,7 +17,7 @@ const [ friendsList, setFriendsList ] = useState([]);
    useEffect( () => {
       axiosWithAuth().get('/api/friends')
          .then( (res) => {
-            console.log(res.data)
+            //console.log(res.data)
             setFriendsList(...friendsList, res.data )
          })
          .catch( (err) => console.log(err) );
@@ -50,6 +50,7 @@ const Friend = styled.div`
    border: 2px solid whitesmoke;
    padding: 1em;
    margin: .5em 0;
+   width: 40%;
    box-shadow: 2px 2px 5px #000;
 
 `;
